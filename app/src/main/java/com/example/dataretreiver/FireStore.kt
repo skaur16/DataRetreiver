@@ -10,7 +10,8 @@ class FireStore {
               age:String,
               clas:String,
               address:String
-              ){
+              )
+    {
 
         val x = hashMapOf(
             "Name" to name,

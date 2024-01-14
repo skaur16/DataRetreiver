@@ -1,5 +1,6 @@
 package com.example.dataretreiver
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -43,7 +44,7 @@ fun design(state: stateViewModel) {
                 value = state.name.value,
                 onValueChange = {
                     state.name.value = it
-                    state.finalname.value
+                    state.finalname.value = state.name.value
                 },
                 label = {Text(text="Name")}
             )
@@ -52,7 +53,7 @@ fun design(state: stateViewModel) {
                 value = state.age.value,
                 onValueChange = {
                     state.age.value = it
-                    state.finalage.value
+                    state.finalage.value = state.age.value
                 },
                 label = {Text(text="Age")}
             )
@@ -62,7 +63,7 @@ fun design(state: stateViewModel) {
                 value = state.clas.value,
                 onValueChange = {
                     state.clas.value = it
-                    state.finalclas.value
+                    state.finalclas.value = state.clas.value
                 },
                 label = {Text(text="Class")}
             )
@@ -72,7 +73,7 @@ fun design(state: stateViewModel) {
                 value = state.address.value,
                 onValueChange = {
                     state.address.value = it
-                    state.finaladdress.value
+                    state.finaladdress.value = state.address.value
                 },
                 label = {Text(text="Address")}
             )
@@ -85,12 +86,60 @@ fun design(state: stateViewModel) {
             )
             {
 
-                Button(onClick = { /*TODO*/ }) {
+                Button(onClick = {
+                    Log.d("before name",state.finalname.value.toString())
+
+                    state.func()
+                    state.flag.value = 1
+
+                }) {
                     Text(text = "Save")
                 }
             }
 
+            if(state.flag.value ==1){
+                Show(state)
+            }
 
+
+        }
+    }
+}
+
+@Composable
+fun Show(state:stateViewModel) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceEvenly
+    )
+    {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ){
+            Text(text="Name:")
+            Text(state.finalname.value)
+        }
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ){
+            Text(text="Age:")
+            Text(state.finalage.value)
+        }
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ){
+            Text(text="Class:")
+            Text(state.finalclas.value)
+        }
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ){
+            Text(text="Address:")
+            Text(state.finaladdress.value)
         }
     }
 }

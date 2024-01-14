@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1037424243857",
+    "project_id": "data-retreiver",
+    "storage_bucket": "data-retreiver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037424243857:android:64f1ddcf9aace4b5bbfb30",
+        "android_client_info": {
+          "package_name": "com.example.dataretreiver"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJO7K2tJ_yVpzczWguJPY6_43GtpkRFs4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
